@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>moXm | 새내기 가이드</title>
+    <meta name="description" content="moXm 체조 동아리 새내기들을 위한 4주 온보딩 가이드" />
+    <style>
+      :root {
+        --bg: #0a0f1f;
+        --panel: rgba(15, 23, 42, 0.8);
+        --text: #eef2ff;
+        --muted: #b8c2e3;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #8b5cf6;
+        --accent-2: #22d3ee;
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+        color: var(--text);
+        line-height: 1.65;
+        background:
+          radial-gradient(circle at 0% 0%, rgba(139, 92, 246, 0.25), transparent 26%),
+          radial-gradient(circle at 100% 0%, rgba(34, 211, 238, 0.18), transparent 24%),
+          linear-gradient(180deg, #0a0f1f 0%, #0f172a 100%);
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+      .hero { padding: 72px 0 40px; }
+      .hero-card, .card {
+        background: linear-gradient(180deg, rgba(15,23,42,0.92), rgba(15,23,42,0.76));
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
+      .hero-card { padding: 34px; overflow: hidden; position: relative; }
+      .brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+      .logo {
+        width: 48px; height: 48px; border-radius: 16px; display: inline-flex; align-items: center; justify-content: center;
+        font-weight: 900; font-size: 18px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #08101f;
+      }
+      .badge {
+        display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px;
+        background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(167, 139, 250, 0.3); color: #e9ddff; font-size: 14px; font-weight: 700;
+      }
+      h1 { margin: 0 0 14px; font-size: clamp(36px, 6vw, 66px); line-height: 1.04; letter-spacing: -0.045em; }
+      .hero-sub { margin: 0; max-width: 780px; color: var(--muted); font-size: 18px; }
+      .hero-actions { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; padding: 14px 18px; border-radius: 14px;
+        font-weight: 800; border: 1px solid var(--line); background: rgba(255,255,255,0.04);
+      }
+      .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #08101f; border-color: transparent; }
+      .summary-grid, .week-grid, .about-grid { display: grid; gap: 18px; }
+      .summary-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 24px; }
+      .week-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-grid { grid-template-columns: 1.2fr 0.8fr; }
+      .card { padding: 22px; }
+      section { padding: 28px 0; }
+      .section-kicker {
+        font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #c4b5fd; margin-bottom: 10px;
+      }
+      h2 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: -0.03em; }
+      .muted { color: var(--muted); }
+      .metric-title {
+        font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #c4b5fd; margin-bottom: 8px;
+      }
+      .metric-value { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+      .week-card { position: relative; overflow: hidden; }
+      .week-chip {
+        display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 16px;
+        margin-bottom: 14px; font-weight: 900; background: rgba(139, 92, 246, 0.16); border: 1px solid rgba(167, 139, 250, 0.28);
+      }
+      .week-card h3, .about-card h3 { margin: 0 0 8px; font-size: 24px; }
+      .week-goal { color: #a5f3fc; font-weight: 700; margin-bottom: 14px; }
+      .label { color: var(--muted); font-size: 14px; margin-top: 14px; }
+      ul { padding-left: 18px; margin: 8px 0 0; }
+      li + li { margin-top: 6px; }
+      .highlight {
+        margin-top: 16px; padding-left: 14px; border-left: 4px solid var(--accent-2); color: #d7fbff; font-weight: 600;
+      }
+      .flow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+      .flow-step {
+        padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,0.04); border: 1px solid var(--line); font-weight: 800;
+      }
+      .flow-arrow { align-self: center; color: var(--muted); }
+      .footer { padding: 24px 0 56px; color: var(--muted); font-size: 14px; }
+      @media (max-width: 900px) {
+        .summary-grid, .week-grid, .about-grid { grid-template-columns: 1fr; }
+        .hero { padding-top: 48px; }
+        .hero-card, .card { padding: 20px; border-radius: 22px; }
+        h1 { font-size: 40px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="brand-row">
+            <div class="logo">M</div>
+            <div class="badge">moXm · 새내기 온보딩 가이드</div>
+          </div>
+          <h1>moXm에 온 걸 환영합니다.<br />처음은 가볍게, 그 다음은 제대로 갑니다.</h1>
+          <p class="hero-sub">
+            moXm의 첫 4주는 새내기가 부담 없이 적응하면서도, 자연스럽게 체조 훈련 루틴으로 넘어갈 수 있도록 설계되어 있습니다.
+            첫 주는 친목과 레크 위주, 그 이후는 기초 체력과 기본기를 쌓는 구조입니다.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#plan">4주 운영계획 보기</a>
+            <a class="btn" href="#about">동아리 소개 보기</a>
+          </div>
+          <div class="summary-grid">
+            <div class="card">
+              <div class="metric-title">1주차</div>
+              <div class="metric-value">적응 · 친목 · 레크</div>
+              <div class="muted">분위기를 익히고, 동아리에 편하게 녹아드는 주간입니다.</div>
+            </div>
+            <div class="card">
+              <div class="metric-title">2~3주차</div>
+              <div class="metric-value">기초 체력 · 기본기</div>
+              <div class="muted">몸을 만들고, 기본 동작 감각을 익히는 단계입니다.</div>
+            </div>
+            <div class="card">
+              <div class="metric-title">4주차 이후</div>
+              <div class="metric-value">정규 훈련 진입</div>
+              <div class="muted">지속 가능한 훈련 루틴과 팀 문화를 정착시킵니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="plan">
+        <div class="container">
+          <div class="section-kicker">4-Week Plan</div>
+          <h2>moXm 4주 운영계획표</h2>
+          <p class="muted">새내기가 쫄지 않고, 재미를 느끼고, 결국 훈련까지 자연스럽게 따라오게 만드는 흐름으로 구성했습니다.</p>
+          <div class="week-grid" style="margin-top: 20px;">
+            <article class="card week-card">
+              <div class="week-chip">1주</div>
+              <h3>적응 & 친목 & 레크</h3>
+              <div class="week-goal">핵심 목표: 어색함 제거, 참여 장벽 낮추기, 재미 형성</div>
+              <div class="label">구성</div>
+              <ul>
+                <li>OT 및 동아리 소개</li>
+                <li>아이스브레이킹</li>
+                <li>팀 레크리에이션</li>
+                <li>가벼운 체조/밸런스 체험</li>
+                <li>마무리 피드백</li>
+              </ul>
+              <div class="label">활동 예시</div>
+              <ul>
+                <li>이름 외우기 게임</li>
+                <li>2인/3인 협동 미션</li>
+                <li>밸런스 잡기 게임</li>
+                <li>유연성 가벼운 체험</li>
+                <li>선배 시범 짧게 보여주기</li>
+              </ul>
+              <div class="highlight">포인트: 처음부터 빡세게 하지 않고, “재밌다 · 분위기 좋다 · 나도 할 수 있겠다”는 감각을 주는 데 집중합니다.</div>
+            </article>
+            <article class="card week-card">
+              <div class="week-chip">2주</div>
+              <h3>기초 체력 & 기본 자세</h3>
+              <div class="week-goal">핵심 목표: 훈련 모드로 부드럽게 전환</div>
+              <div class="label">구성</div>
+              <ul>
+                <li>공통 워밍업</li>
+                <li>유연성 훈련</li>
+                <li>코어/기초 체력</li>
+                <li>기본 자세 및 정렬</li>
+                <li>마무리 스트레칭</li>
+              </ul>
+              <div class="label">활동 예시</div>
+              <ul>
+                <li>전신 스트레칭</li>
+                <li>플랭크, 버드독, 스쿼트</li>
+                <li>몸 정렬, 중심 잡기</li>
+                <li>기본 균형 자세</li>
+                <li>짝 피드백</li>
+              </ul>
+              <div class="highlight">포인트: 난이도보다 정확도를 우선하고, 실력 차이가 부담으로 느껴지지 않도록 운영합니다.</div>
+            </article>
+            <article class="card week-card">
+              <div class="week-chip">3주</div>
+              <h3>기본 동작 적응</h3>
+              <div class="week-goal">핵심 목표: 체조 동아리다운 느낌을 주기 시작</div>
+              <div class="label">구성</div>
+              <ul>
+                <li>워밍업</li>
+                <li>유연성 + 체력</li>
+                <li>기본 동작 연습</li>
+                <li>짝/소그룹 활동</li>
+                <li>마무리 리뷰</li>
+              </ul>
+              <div class="label">활동 예시</div>
+              <ul>
+                <li>구르기, 착지, 밸런스 등 기본 요소</li>
+                <li>간단한 연결 동작 해보기</li>
+                <li>짝끼리 자세 봐주기</li>
+                <li>짧은 반복 훈련</li>
+              </ul>
+              <div class="highlight">포인트: “못한다”보다 “조금씩 된다”는 느낌을 심어주는 것이 핵심입니다.</div>
+            </article>
+            <article class="card week-card">
+              <div class="week-chip">4주</div>
+              <h3>정규 훈련 루틴 진입</h3>
+              <div class="week-goal">핵심 목표: 지속 가능한 훈련 체계 안착</div>
+              <div class="label">구성</div>
+              <ul>
+                <li>워밍업 루틴 고정</li>
+                <li>유연성 루틴 고정</li>
+                <li>기초 체력 루틴 고정</li>
+                <li>기술 연습</li>
+                <li>팀 마무리</li>
+              </ul>
+              <div class="label">활동 예시</div>
+              <ul>
+                <li>매주 반복 가능한 준비운동 체계 확립</li>
+                <li>개인별 부족한 요소 체크</li>
+                <li>기술 난도 소폭 상승</li>
+                <li>조별 연습 또는 개인 목표 설정</li>
+              </ul>
+              <div class="highlight">포인트: 이제부터는 재미와 훈련의 균형을 잡고, moXm만의 정규 루틴을 형성합니다.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="card">
+            <div class="section-kicker">Flow Summary</div>
+            <h2>한눈에 보는 흐름</h2>
+            <div class="flow">
+              <div class="flow-step">1주차 · 친해지기</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">2주차 · 몸 만들기</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">3주차 · 기본기 적응</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">4주차 · 정규훈련 진입</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about">
+        <div class="container">
+          <div class="section-kicker">About moXm</div>
+          <h2>동아리 소개</h2>
+          <div class="about-grid" style="margin-top: 20px;">
+            <article class="card about-card">
+              <h3>대구교대 체조 동아리 moXm</h3>
+              <p class="muted">
+                moXm은 대구교육대학교 체조 동아리입니다. 새내기부터 기존 부원까지 함께 움직이고,
+                함께 배우고, 함께 성장하는 팀을 지향합니다.
+              </p>
+              <p class="muted">
+                처음에는 가볍게 적응하고, 이후에는 기초 체력과 기본기를 차근차근 쌓아가며
+                팀 루틴 속에서 자연스럽게 훈련에 들어갈 수 있도록 운영합니다.
+              </p>
+            </article>
+            <article class="card about-card">
+              <h3>주요 이력</h3>
+              <ul>
+                <li>제1회 전국교육대학교 체조대회</li>
+                <li>남자부 · 준우승</li>
+                <li>여자부 · 우승</li>
+              </ul>
+              <div class="highlight">moXm은 즐겁게 시작하되, 실력과 팀워크 모두를 진지하게 쌓아가는 동아리입니다.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">moXm 새내기 가이드 · GitHub Pages 배포 준비본</div>
+    </footer>
+  </body>
+</html>
